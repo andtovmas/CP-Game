@@ -1,0 +1,23 @@
+{
+  "name": "cp_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add:base": "node ./generate-base-image"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.maiv.biz/qa/cp_game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^8.2.1"
+  },
+  "devDependencies": {
+    "cypress": "^6.5.0",
+    "cypress-xpath": "^1.6.2"
+  }
+}

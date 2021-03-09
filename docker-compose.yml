@@ -1,0 +1,27 @@
+
+      
+version: '3'
+services:
+  web:
+    image: apache
+    build: ./
+    container_name: apache
+    restart: always
+    # we can see the server running at "localhost:8080"
+    ports:
+      - "8080:80"
+
+  e2e:
+    image: cypress
+    build: ./
+    container_name: cypress
+    depends_on:
+      - web
+    
+    environment:
+      - CYPRESS_baseUrl=http://web
+    command: npx cypress run
+
+    volumes:
+      - ./cypress:/app/cypress
+      - ./cypress.json:/app/cypress.json

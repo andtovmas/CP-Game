@@ -1,0 +1,9 @@
+{
+    "chromeWebSecurity": false,
+   
+    
+    "reporterOptions": {
+      "mochaFile": "cypress/results/output.xml"
+    }
+}
+
