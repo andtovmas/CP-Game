@@ -6,10 +6,11 @@ describe('Sign_In', () => {
         cy.visit('https://capital-battles.rock-west.net/')
 
         cy.xpath('//*[@id="root"]/div/div/a').click()
-        cy.wait(5000)
+        
 
 
         //sign in
+       
 
         cy.get('Iframe').then(function ($iframe) {
 

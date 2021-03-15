@@ -4,13 +4,15 @@ describe('Sign_Up', () => {
   it('Sign_Up', () => {
 
       cy.visit('https://capital-battles.rock-west.net/')
+      
 
       cy.xpath('//*[@id="root"]/div/div/a').click()
-      cy.xpath('//*[@id="root"]/div/div/div/div[2]/a/span').click()
+      cy.wait(5000)
+      cy.xpath('//*[@id="root"]/div/div/div/div[2]/p/span').click()
       cy.wait(3000)
       //sign up 
 
-      cy.get('iframe').then(function ($iframe) {
+      cy.get('Iframe').then(function ($iframe) {
 
           const $body = $iframe.contents().find('body')
           
@@ -47,13 +49,13 @@ describe('Sign_Up', () => {
 
       });
 
-      cy.xpath('//*[@id="root"]/div/div/div/div/div/button').contains('PLAY NOW').click()
-      cy.wait(10000)
+      // cy.xpath('//*[@id="root"]/div/div/div/div/div/button').contains('PLAY NOW').click()
+    cy.wait(5000)
 
       
 
-      cy.xpath('//*[@id="root"]/div/div/div/header/img', { timeout: 10000 }).should('be.visible');
-      cy.xpath('//*[@id="root"]/div/div/div/header/img').click()
+      cy.xpath('//*[@id="root"]/div/div/div[1]/header/img', { timeout: 10000 }).should('be.visible');
+      cy.xpath('//*[@id="root"]/div/div/div[1]/header/img').click()
       cy.xpath('//*[@id="modal"]/div[1]/ul/a[5]').click()
 
 
