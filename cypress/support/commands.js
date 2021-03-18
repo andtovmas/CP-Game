@@ -23,18 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-import "cypress-keycloak-commands";
+// import "cypress-keycloak-commands";
+
 
 Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {
-    Cypress.log({
-      name: 'iframe',
-      consoleProps() {
-        return {
-          iframe: $iframe,
-        };
-      },
-    });
-    return new Cypress.Promise(resolve => {
-      resolve($iframe.contents().find(selector));
-    });
+  Cypress.log({
+    name: 'iframe',
+    consoleProps() {
+      return {
+        iframe: $iframe,
+      };
+    },
   });
+  return new Cypress.Promise(resolve => {
+    resolve($iframe.contents().find(selector));
+  });
+});

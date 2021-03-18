@@ -1,10 +1,6 @@
 {
-    "chromeWebSecurity": false,
-    
-   
-    
-    "reporterOptions": {
-      "mochaFile": "cypress/results/output.xml"
-    }
+  "chromeWebSecurity": false,
+  "reporterOptions": {
+    "mochaFile": "cypress/results/output.xml"
+  }
 }
-
