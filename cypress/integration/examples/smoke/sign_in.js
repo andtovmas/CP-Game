@@ -10,7 +10,7 @@ describe('Sign_In', () => {
 
         cy.xpath('//*[@id="root"]/div/div/a').click()
 
-        cy.request('https://capital-battles.rock-west.net/login')
+
 
         // Cypress.Cookies.defaults({
         //     preserve: "api_token"
