@@ -55,20 +55,20 @@ describe('Profile Edit', () => {
         cy.get('.gBLpIo').should('be.visible');
         cy.xpath('//*[@id="root"]/div/div/main/main/div[1]/div/div[2]/section/p[1]').contains('Symbols ')
 
-        let i = 0;
-
-        while (i < 4) {
+        for (var i = 0; i < 4; i++) {
 
             cy.get('.jVffBF').click({ multiple: true })
 
         }
+
+        cy.xpath('//*[@id="root"]/div/div/main/main/div[1]/div/div[6]/section/div/button').click()
         // cy.xpath('//*[@id="root"]/div/div/div/div/div/button').contains('PLAY NOW').click()
         cy.wait(5000)
 
 
 
         cy.xpath('//*[@id="root"]/div/div/div[1]/header/img', { timeout: 10000 }).should('be.visible');
-        cy.xpath('//*[@id="root"]/div/div/div[1]/header/img').click()
+
 
 
 
@@ -84,13 +84,33 @@ describe('Profile Edit', () => {
 
         cy.xpath('//*[@id="root"]/div/div/div[1]/main/div[1]/div[1]/div[1]').click()
         cy.get('.iQhdjw').contains('Reactivate your balance ')
-        cy.get('.iQhdjw').contains('Activate wallet and get 10 EUR bonus to your account ')
+        cy.xpath('//*[@id="modal"]/div[2]/section[3]/div/button').click()
+        cy.get('.lkbHRn').contains('Personal account')
+        cy.get(':nth-child(1) > .style__Input-xi7emb-1').type('quality')
+        cy.get(':nth-child(2) > .style__Input-xi7emb-1').type('quality')
+        cy.get(':nth-child(3) > .style__Input-xi7emb-1').type('+37455000000')
+        cy.get('.eNFVTX').click()
+        cy.get('[style="display: flex;"] > :nth-child(1) > input').type('1')
+        cy.get('[style="display: flex;"] > :nth-child(2) > input').type('2')
+        cy.get('[style="display: flex;"] > :nth-child(3) > input').type('3')
+        cy.get('[style="display: flex;"] > :nth-child(4) > input').type('4')
+        cy.get('.eNFVTX').click()
+        cy.wait(3000)
+        cy.xpath('//*[@id="root"]/div/div/div[2]/section[1]/h2').contains('Thank you!')
+        cy.get('.hkYkNT').contains('Your account was successfully activated')
+        cy.xpath('//*[@id="root"]/div/div/div[2]/section[3]/div/div[1]/button').contains('START A BATTLE')
+        cy.xpath('//*[@id="root"]/div/div/div[2]/section[3]/div/div[2]/button').contains('TOP-UP').click()
+
+        
+
+        for (var i = 0; i < 3; i++) {
+
+            cy.get('.jVffBF').click()
 
 
+        }
 
-
-
-
+        cy.xpath('//*[@id="root"]/div/div/main/div[1]/div/div[4]/section/div/button/span').contains('get my bonus').click()
     })
 
 
