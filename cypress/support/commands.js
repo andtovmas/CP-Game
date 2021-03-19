@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 // import "cypress-keycloak-commands";
+import 'cypress-wait-until';
 
 
 Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe, selector) => {

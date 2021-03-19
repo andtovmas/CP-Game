@@ -21,6 +21,7 @@
   "devDependencies": {
     "cypress": "^6.6.0",
     "cypress-keycloak-commands": "^1.2.0",
+    "cypress-wait-until": "^1.7.1",
     "cypress-xpath": "^1.6.2"
   }
 }
