@@ -1,96 +1,59 @@
-import cookies from 'js-cookie'
+import SignInPage from '../modules/SignIn';
 
 describe('Sign_In', () => {
 
 
     it('Sign_In', () => {
 
-        cy.visit('https://capital-battles-auth.rock-west.net/')
 
-
-        cy.xpath('//*[@id="root"]/div/div/a').click()
-
-
-
-        // Cypress.Cookies.defaults({
-        //     preserve: "api_token"
-        // })
-
-        // let cookie
-
-        // cy.getCookie('api_token')
-        //     .should('exist')
-        //     .then((c) => {
-        //         // save cookie until we need it
-        //         cookie = c
-        //     })
+        const lg = new SignInPage()
 
 
 
-        // // cy.request({
-        // //     url: 'https://capital-battles.rock-west.net/login',
-        // //     headers: {
-        // //         'Cookie': 'api_token' + c
-        // //     }
-        // // })
-
-        // cy.request({
-        //     method: 'GET',
-        //     url: 'https://capital-battles.rock-west.net/login', // baseUrl is prepended to url
-        //     form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
-        //     body: {
-        //         api_token: cookie
-
-        //     }
-        // })
-
-        // cy.wait(5000)
-
-        // cy.visit('https://capital-battles.rock-west.net/login')
-        // cy.wait(5000)
-
-        //sign in
+        lg.visit()
+        lg.getIframe()
 
 
-        cy.get('Iframe').then(function ($iframe) {
-
-            const $body = $iframe.contents().find('body')
-
-
-            cy.wrap($body)
-                .find('[name="login"]')
-                .type("aaa@gmail.com");
-
-
-            cy.wrap($body)
-                .find('[name="password"]')
-                .type("@quality55");
+    })
 
 
 
-            cy.wrap($body)
-                .find('button').click();
+
+    it('tutorial slide', () => {
 
 
 
-        });
+
+        // cy.xpath('//*[@id="root"]/div/div/main/main/div[1]/div/div[1]/section/img')
+        // cy.get('p[class=.hmgYLV] ').contains('Capital Battles is based on real movements of currency rates.');
+        cy.get('.jVffBF').click()
 
 
-        cy.xpath('//*[@id="root"]/div/div/div/div/div/button').contains('PLAY NOW').click()
+        // cy.get('.gcAqpC ').contains('Symbols ')
+
+        for (var i = 0; i < 4; i++) {
+
+            cy.get('.jVffBF').click({ multiple: true })
+
+        }
+
+        cy.get('.foJGIl button').click()
+        // cy.xpath('//*[@id="root"]/div/div/div/div/div/button').contains('PLAY NOW').click()
         cy.wait(5000)
 
 
 
-        cy.xpath('//*[@id="root"]/div/div/div/header/img', { timeout: 10000 }).should('be.visible');
-        cy.xpath('//*[@id="root"]/div/div/div/header/img').click()
-        cy.xpath('//*[@id="modal"]/div[1]/ul/a[5]/div').click()
+        cy.xpath('//*[@id="root"]/div/div/div[1]/header/img', { timeout: 10000 }).should('be.visible');
 
 
 
 
 
 
-    })
+
+
+
+    });
 
 
 })
